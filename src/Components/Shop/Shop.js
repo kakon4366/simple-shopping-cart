@@ -14,7 +14,11 @@ const Shop = () => {
 
     }, [])
 
-    
+    //add to cart handler func
+    const addToCartHandler = product => {
+        console.log('Add to cart handler', product);
+        
+    }
 
 
     return (
@@ -23,7 +27,7 @@ const Shop = () => {
                 <h4>Total Products: {products.length}</h4>
                <div className='products'>
                    {
-                       products.map(product => <Product product={product} key={product.id} ></Product>)
+                       products.map(product => <Product addToCartHandler={addToCartHandler} product={product} key={product.id} ></Product>)
                    }
                </div>
             </div>
