@@ -34,6 +34,11 @@
 	border-radius: 0px 0px 8px 8px;
 	border: none;
 	background-color: #ffe0b3;
+	cursor: pointer;
+	transition: all 0.3s;
+}
+.cart-button:hover {
+	background-color: orange;
 }
 .seller-rating {
 	position: absolute;
