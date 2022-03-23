@@ -1,12 +1,12 @@
 import React from 'react';
 import './Cart.css';
 
-const Cart = () => {
+const Cart = ({cart}) => {
     return (
         <div className='cart'>
             <h2>Order Summary</h2>
             <div className='cart-price'>
-                <p>Selected Items: </p>
+                <p>Selected Items: {cart.length}</p>
                 <p>Total Price: </p>
                 <p>Total Shipping Charge: </p>
                 <p>Tax: </p>
