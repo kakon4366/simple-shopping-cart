@@ -36,6 +36,10 @@
 	background-color: #ffe0b3;
 	cursor: pointer;
 	transition: all 0.3s;
+	font-weight: 700;
+}
+.cart-button span {
+	margin-right: 5px;
 }
 .cart-button:hover {
 	background-color: orange;
