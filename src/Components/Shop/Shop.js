@@ -29,21 +29,30 @@ const Shop = () => {
                 const quantity = storedCart[id];
                 addedProduct.quantity = quantity;
                 savedCart.push(addedProduct);
-
-                console.log(addedProduct, quantity);
             }
         }
         setCart(savedCart);
-        console.log(savedCart);
         
     }, [products])
 
     //add to cart handler func
-    const addToCartHandler = product => {
-        const newCart = [...cart, product];
+    const addToCartHandler = selectedProduct => {
+        console.log(selectedProduct);
+        let newCart = [];
+        const exists = cart.find(product => product.id === selectedProduct.id);
+        console.log('Exists success', exists);
+        if(!exists){
+            selectedProduct.quantity = 1;
+            newCart = [...cart, selectedProduct];
+        }else{
+            const restProduct = cart.filter(product => product.id !== selectedProduct.id);
+            exists.quantity += 1;
+            newCart = [...restProduct, exists];
+        }
+        
         setCart(newCart);
         //add to db
-        addToDB(product.id);
+        addToDB(selectedProduct.id);
     }
 
     return (
