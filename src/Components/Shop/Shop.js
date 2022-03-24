@@ -25,7 +25,6 @@ const Shop = () => {
         addToDB(product.id);
     }
 
-
     return (
         <div className='shop-container'>
             <div className='products-container'>
