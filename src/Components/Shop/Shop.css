@@ -3,7 +3,7 @@
 	grid-template-columns: 4fr 1fr;
 }
 .products-container {
-	margin: 120px 104px;
+	margin: 36px 104px;
 }
 .products {
 	display: grid;
