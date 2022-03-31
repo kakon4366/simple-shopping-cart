@@ -1,0 +1,15 @@
+.not-found-page-container{
+    height: calc(100vh - 137px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.not-found-page-container h2{
+    font-size: 48px;
+    line-height: 38px;
+}
+.not-found-page-container .found-code{
+    font-size: 200px;
+    margin-top: 38px;
+}

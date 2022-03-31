@@ -1,11 +1,11 @@
 import React from "react";
+import "./NotFound404.css";
 
 const NotFound404 = () => {
 	return (
-		<div>
+		<div className="not-found-page-container">
 			<h2>This Page is Not Available!!</h2>
-			<br />
-			<h1>404</h1>
+			<h2 className="found-code">404</h2>
 		</div>
 	);
 };
