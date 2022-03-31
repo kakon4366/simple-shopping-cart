@@ -3,6 +3,7 @@ import "./App.css";
 import Footer from "./Components/Footer/Footer";
 import Header from "./Components/Header/Header";
 import Shop from "./Components/Shop/Shop";
+import NotFound404 from "./Components/NotFound404/NotFound404";
 
 function App() {
 	return (
@@ -10,6 +11,7 @@ function App() {
 			<Header></Header>
 			<Routes>
 				<Route path="shop" element={<Shop></Shop>}></Route>
+				<Route path="*" element={<NotFound404></NotFound404>}></Route>
 			</Routes>
 			<Footer></Footer>
 		</div>
