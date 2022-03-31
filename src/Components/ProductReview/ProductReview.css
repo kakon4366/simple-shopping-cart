@@ -1,0 +1,30 @@
+.review-product{
+    display: flex;
+    border: 1px solid #95A0A7;
+    border-radius: 8px;
+    padding: 8px;
+    height: 120px;
+    margin: 21px;
+}
+.product-thumbnail img{
+    width: 120px;
+    height: 120px;
+}
+
+.product-detail-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.product-details h3{
+    font-size: 21px;
+    margin-top: 12px;
+    margin-bottom: 0;
+}
+.product-details p{
+    margin: 5px 0;
+}
+.product-details .product-price{
+    font-weight: 700;
+}
