@@ -12,7 +12,10 @@ const Order = () => {
 		<div className="shop-container">
 			<div className="products-container">
 				{cart.map((product) => (
-					<ProductReview product={product}></ProductReview>
+					<ProductReview
+						key={product.id}
+						product={product}
+					></ProductReview>
 				))}
 			</div>
 			<div className="cart-container">
