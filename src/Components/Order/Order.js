@@ -28,7 +28,9 @@ const Order = () => {
 				))}
 			</div>
 			<div className="cart-container">
-				<Cart cart={cart}></Cart>
+				<Cart cart={cart}>
+					<button>Proceed Checkout</button>
+				</Cart>
 			</div>
 		</div>
 	);
