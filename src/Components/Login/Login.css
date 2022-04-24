@@ -40,3 +40,10 @@
     cursor: pointer;
     font-size: 18px;
 }
+.toggle-form{
+    margin-top: 8px;
+    display: block;
+}
+.toggle-form a{
+    color:#FF9900;
+}

@@ -1,0 +1,35 @@
+.social-btn-area{
+    margin-top: 12px;
+}
+.social-btn-area p{
+    text-align: center;
+    position: relative;
+}
+.social-btn-area p > span{
+    background-color: aliceblue;
+    position: relative;
+    z-index: 99;
+    padding: 0 8px;
+}
+.social-btn-area p:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 11px;
+    width: 100%;
+    height: 2px;
+    background-color: lightgray;
+}
+.social-btn{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 0;
+    cursor: pointer;
+}
+.social-btn span{
+    margin-left: 8px;
+    font-size: 16px;
+
+}

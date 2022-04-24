@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SocialLogin from "../SocalLogin/SocialLogin";
 
 const Register = () => {
 	return (
@@ -27,10 +28,11 @@ const Register = () => {
 						/>
 					</div>
 					<input className="user-btn" type="submit" value="Login" />
-					<span>
+					<span className="toggle-form">
 						Not a member? <Link to="/register">Register</Link>
 					</span>
 				</form>
+				<SocialLogin></SocialLogin>
 			</div>
 		</div>
 	);
