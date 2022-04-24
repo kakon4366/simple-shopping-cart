@@ -6,6 +6,8 @@ import Shop from "./Components/Shop/Shop";
 import NotFound404 from "./Components/NotFound404/NotFound404";
 import Order from "./Components/Order/Order";
 import Home from "./Components/Home/Home";
+import Login from "./Components/Login/Login";
+import Register from "./Components/Register/Register";
 
 function App() {
 	return (
@@ -16,6 +18,8 @@ function App() {
 				<Route path="/home" element={<Home />}></Route>
 				<Route path="shop" element={<Shop></Shop>}></Route>
 				<Route path="order" element={<Order></Order>}></Route>
+				<Route path="/login" element={<Login />}></Route>
+				<Route path="/register" element={<Register />}></Route>
 				<Route path="*" element={<NotFound404></NotFound404>}></Route>
 			</Routes>
 			<Footer></Footer>
