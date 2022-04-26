@@ -10,8 +10,8 @@ const Header = () => {
 			<nav className="nav-bar">
 				<Link to="/home">Home</Link>
 				<Link to="/shop">Shop</Link>
-				<Link to="/order">Order</Link>
 				<Link to="/order-review">Order Review</Link>
+				<Link to="/order">Order</Link>
 				<Link to="/manage-inventory">Manage Inventory</Link>
 				<Link to="/login">Login</Link>
 				<Link className="register-button" to="/register">

@@ -4,7 +4,6 @@ import SocialLogin from "../SocalLogin/SocialLogin";
 import "./Login.css";
 import auth from "../../firebase.init";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
-import Loading from "../Loadding/Loading";
 
 const Login = () => {
 	const [signInWithEmailAndPassword, user, loading, error] =

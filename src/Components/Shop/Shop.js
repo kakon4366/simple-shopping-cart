@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import useCart from "../../Hooks/useCart";
 import useProduct from "../../Hooks/useProduct";
 import { addToDB } from "../../utilities/myFakeDB";
@@ -7,21 +8,25 @@ import Product from "../Product/Product";
 import "./Shop.css";
 
 const Shop = () => {
-	const [products, setProducts] = useProduct([]);
+	const [products] = useProduct([]);
 	const [cart, setCart] = useCart(products);
+
+	const navigate = useNavigate();
 
 	//add to cart handler func
 	const addToCartHandler = (selectedProduct) => {
 		console.log(selectedProduct);
 		let newCart = [];
-		const exists = cart.find((product) => product.id === selectedProduct.id);
+		const exists = cart.find(
+			(product) => product._id === selectedProduct._id
+		);
 		console.log("Exists success", exists);
 		if (!exists) {
 			selectedProduct.quantity = 1;
 			newCart = [...cart, selectedProduct];
 		} else {
 			const restProduct = cart.filter(
-				(product) => product.id !== selectedProduct.id
+				(product) => product._id !== selectedProduct._id
 			);
 			exists.quantity += 1;
 			newCart = [...restProduct, exists];
@@ -29,7 +34,7 @@ const Shop = () => {
 
 		setCart(newCart);
 		//add to db
-		addToDB(selectedProduct.id);
+		addToDB(selectedProduct._id);
 	};
 
 	return (
@@ -41,14 +46,19 @@ const Shop = () => {
 						<Product
 							addToCartHandler={addToCartHandler}
 							product={product}
-							key={product.id}
+							key={product._id}
 						></Product>
 					))}
 				</div>
 			</div>
 			<div className="cart-container">
 				<Cart cart={cart}>
-					<button>Order Review</button>
+					<button
+						className="order-btn"
+						onClick={() => navigate("/order-review")}
+					>
+						Order Review
+					</button>
 				</Cart>
 			</div>
 		</div>

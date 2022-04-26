@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import SocialLogin from "../SocalLogin/SocialLogin";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-import Loading from "../Loadding/Loading";
 
 const Register = () => {
 	const [createUserWithEmailAndPassword, user, loading, error] =

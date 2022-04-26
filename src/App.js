@@ -8,6 +8,7 @@ import Order from "./Components/Order/Order";
 import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
+import OrderReview from "./Components/OrderReview/OrderReview";
 
 function App() {
 	return (
@@ -16,8 +17,9 @@ function App() {
 			<Routes>
 				<Route path="/" element={<Home />}></Route>
 				<Route path="/home" element={<Home />}></Route>
-				<Route path="shop" element={<Shop></Shop>}></Route>
-				<Route path="order" element={<Order></Order>}></Route>
+				<Route path="/shop" element={<Shop></Shop>}></Route>
+				<Route path="/order" element={<Order></Order>}></Route>
+				<Route path="/order-review" element={<OrderReview />}></Route>
 				<Route path="/login" element={<Login />}></Route>
 				<Route path="/register" element={<Register />}></Route>
 				<Route path="*" element={<NotFound404></NotFound404>}></Route>
