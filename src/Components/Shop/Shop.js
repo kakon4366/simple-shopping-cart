@@ -1,19 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useCart from "../../Hooks/useCart";
-import useProduct from "../../Hooks/useProduct";
 import { addToDB } from "../../utilities/myFakeDB";
 import Cart from "../Cart/Cart";
 import Product from "../Product/Product";
 import "./Shop.css";
 
 const Shop = () => {
-	const [products] = useProduct([]);
+	const [products, setProducts] = useState([]);
 	const [cart, setCart] = useCart(products);
 	const [pageCount, setPageCount] = useState();
 	const [page, setPage] = useState(0);
+	const [size, setSize] = useState(10);
 
 	const navigate = useNavigate();
+
+	useEffect(() => {
+		fetch(`http://localhost:5000/products?page=${page}&size=${size}`)
+			.then((res) => res.json())
+			.then((data) => setProducts(data));
+	}, []);
 
 	//get page count
 	useEffect(() => {
@@ -73,12 +79,17 @@ const Shop = () => {
 							{number}
 						</button>
 					))}
-					<select name="" id="">
+					<select
+						defaultValue={10}
+						onChange={(e) => setSize(e.target.value)}
+					>
 						<option value="5">5</option>
 						<option value="10">10</option>
 						<option value="15">15</option>
+						<option value="20">20</option>
 					</select>
 				</div>
+				{console.log(size)}
 			</div>
 			<div className="cart-container">
 				<Cart cart={cart}>
