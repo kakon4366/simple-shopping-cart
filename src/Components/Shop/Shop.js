@@ -19,7 +19,7 @@ const Shop = () => {
 		fetch(`http://localhost:5000/products?page=${page}&size=${size}`)
 			.then((res) => res.json())
 			.then((data) => setProducts(data));
-	}, []);
+	}, [page, size]);
 
 	//get page count
 	useEffect(() => {
@@ -27,10 +27,10 @@ const Shop = () => {
 			.then((res) => res.json())
 			.then((data) => {
 				const count = data.count;
-				const pages = Math.ceil(count / 10);
+				const pages = Math.ceil(count / size);
 				setPageCount(pages);
 			});
-	}, []);
+	}, [size]);
 
 	//add to cart handler func
 	const addToCartHandler = (selectedProduct) => {
@@ -89,7 +89,6 @@ const Shop = () => {
 						<option value="20">20</option>
 					</select>
 				</div>
-				{console.log(size)}
 			</div>
 			<div className="cart-container">
 				<Cart cart={cart}>
