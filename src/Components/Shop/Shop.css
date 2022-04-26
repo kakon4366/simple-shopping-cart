@@ -22,3 +22,17 @@
 	border-radius: 3px;
 	cursor: pointer;
 }
+.pagination{
+	margin-top: 50px;
+}
+.pagination button{
+	margin-right: 8px;
+	font-size: 16px;
+	padding: 8px;
+	cursor: pointer;
+	border: 1px solid orange;
+	background-color: white;
+}
+.pagination .selected{
+	background-color: orange;
+} 

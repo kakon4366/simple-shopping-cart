@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useCart from "../../Hooks/useCart";
 import useProduct from "../../Hooks/useProduct";
@@ -10,8 +10,21 @@ import "./Shop.css";
 const Shop = () => {
 	const [products] = useProduct([]);
 	const [cart, setCart] = useCart(products);
+	const [pageCount, setPageCount] = useState();
+	const [page, setPage] = useState(0);
 
 	const navigate = useNavigate();
+
+	//get page count
+	useEffect(() => {
+		fetch("http://localhost:5000/productCount")
+			.then((res) => res.json())
+			.then((data) => {
+				const count = data.count;
+				const pages = Math.ceil(count / 10);
+				setPageCount(pages);
+			});
+	}, []);
 
 	//add to cart handler func
 	const addToCartHandler = (selectedProduct) => {
@@ -49,6 +62,22 @@ const Shop = () => {
 							key={product._id}
 						></Product>
 					))}
+				</div>
+				<div className="pagination">
+					{[...Array(pageCount).keys()].map((number) => (
+						<button
+							className={page === number ? "selected" : ""}
+							onClick={() => setPage(number)}
+							key={number}
+						>
+							{number}
+						</button>
+					))}
+					<select name="" id="">
+						<option value="5">5</option>
+						<option value="10">10</option>
+						<option value="15">15</option>
+					</select>
 				</div>
 			</div>
 			<div className="cart-container">
