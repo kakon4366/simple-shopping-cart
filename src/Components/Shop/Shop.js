@@ -16,14 +16,16 @@ const Shop = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		fetch(`http://localhost:5000/products?page=${page}&size=${size}`)
+		fetch(
+			`https://afternoon-crag-95297.herokuapp.com/products?page=${page}&size=${size}`
+		)
 			.then((res) => res.json())
 			.then((data) => setProducts(data));
 	}, [page, size]);
 
 	//get page count
 	useEffect(() => {
-		fetch("http://localhost:5000/productCount")
+		fetch("https://afternoon-crag-95297.herokuapp.com/productCount")
 			.then((res) => res.json())
 			.then((data) => {
 				const count = data.count;

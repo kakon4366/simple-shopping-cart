@@ -10,7 +10,7 @@ const useCart = () => {
 		console.log("This is stroed cart data", keys);
 		const savedCart = [];
 
-		fetch("http://localhost:5000/productByKeys", {
+		fetch("https://afternoon-crag-95297.herokuapp.com/productByKeys", {
 			method: "POST",
 			headers: {
 				"content-type": "application/json",
