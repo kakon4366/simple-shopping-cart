@@ -1,26 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocalLogin/SocialLogin";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import { toast } from "react-toastify";
 
 const Register = () => {
-	const [createUserWithEmailAndPassword, user, loading, error] =
+	const [createUserWithEmailAndPassword, loading, error] =
 		useCreateUserWithEmailAndPassword(auth);
 
-	// if (loading) {
-	// 	return <Loading></Loading>;
-	// }
+	const navigate = useNavigate();
 
-	// if (error) {
-	// 	return (
-	// 		<div>
-	// 			<p>Error: {error.message}</p>
-	// 		</div>
-	// 	);
-	// }
-
-	const handleRegiste = (e) => {
+	const handleRegiste = async (e) => {
 		e.preventDefault();
 		const name = e.target.name.value;
 		const email = e.target.email.value;
@@ -29,7 +20,10 @@ const Register = () => {
 		console.log(name, email, password, confirmPassword);
 
 		if (password === confirmPassword) {
-			createUserWithEmailAndPassword(email, password);
+			await createUserWithEmailAndPassword(email, password);
+
+			toast.success("Register Success!");
+			navigate("/login");
 		}
 	};
 	return (

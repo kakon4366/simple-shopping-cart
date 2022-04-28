@@ -25,3 +25,18 @@
 	background-color: #FF9900;
 	color: black
 }
+.singout-btn{
+	border: 1px solid #FF9900;
+	padding: 8px 12px;
+	background-color: #f3ae45;
+	font-size: 16px;
+	cursor: pointer;
+	color: black;
+	border-radius: 4px;
+	margin-left: 36px;
+	transition: all 0.3s;
+}
+.singout-btn:hover{
+	background-color: #e08c0d;
+}
+

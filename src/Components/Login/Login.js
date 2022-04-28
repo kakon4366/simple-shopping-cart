@@ -1,21 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocalLogin/SocialLogin";
 import "./Login.css";
 import auth from "../../firebase.init";
 import { useSignInWithEmailAndPassword } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
 
 const Login = () => {
 	const [signInWithEmailAndPassword, user, loading, error] =
 		useSignInWithEmailAndPassword(auth);
 
-	const handleLogin = (e) => {
+	const navigate = useNavigate();
+
+	if (user) {
+		navigate("/home");
+	}
+
+	const handleLogin = async (e) => {
 		e.preventDefault();
 		const email = e.target.email.value;
 		const password = e.target.password.value;
 
-		signInWithEmailAndPassword(email, password);
+		await signInWithEmailAndPassword(email, password);
+		toast.success("Login Success!");
 	};
+
 	return (
 		<div className="form-area">
 			<div className="form">

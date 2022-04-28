@@ -9,6 +9,8 @@ import Home from "./Components/Home/Home";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
 import OrderReview from "./Components/OrderReview/OrderReview";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
 	return (
@@ -25,6 +27,7 @@ function App() {
 				<Route path="*" element={<NotFound404></NotFound404>}></Route>
 			</Routes>
 			<Footer></Footer>
+			<ToastContainer></ToastContainer>
 		</div>
 	);
 }
