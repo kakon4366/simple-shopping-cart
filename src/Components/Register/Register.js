@@ -21,7 +21,6 @@ const Register = () => {
 
 		if (password === confirmPassword) {
 			await createUserWithEmailAndPassword(email, password);
-
 			toast.success("Register Success!");
 			navigate("/login");
 		}

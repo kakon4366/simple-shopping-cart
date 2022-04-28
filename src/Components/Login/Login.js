@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../SocalLogin/SocialLogin";
 import "./Login.css";
 import auth from "../../firebase.init";
@@ -11,9 +11,16 @@ const Login = () => {
 		useSignInWithEmailAndPassword(auth);
 
 	const navigate = useNavigate();
+	const location = useLocation();
+
+	let from = location.state?.from?.pathname || "/";
+
+	if (loading) {
+		return <p>Loading...</p>;
+	}
 
 	if (user) {
-		navigate("/home");
+		navigate(from, { replace: true });
 	}
 
 	const handleLogin = async (e) => {
@@ -52,7 +59,7 @@ const Login = () => {
 					<input
 						className="user-btn"
 						type="submit"
-						value={loading ? "Loadding..." : "Login"}
+						defaultValue={loading ? "Loadding..." : "Login"}
 					/>
 					<span className="toggle-form">
 						Not a member? <Link to="/register">Register</Link>
